@@ -32,10 +32,10 @@ namespace RabbitMq.Consumer
 
                 Console.WriteLine($"Receveid: {message}");
 
-                // Now we must aknowledge the broker that we consumed the message
+                // Now we must acknowledge the broker that we consumed the message
                 // This way, the message will be removed from the queue
 
-               await ((AsyncEventingBasicConsumer)sender).Channel.BasicAckAsync(eventArgs.DeliveryTag, multiple: false);
+                await ((AsyncEventingBasicConsumer)sender).Channel.BasicAckAsync(eventArgs.DeliveryTag, multiple: false);
                 // setting multiple to false means that we only going to ack the current message
             };
 
